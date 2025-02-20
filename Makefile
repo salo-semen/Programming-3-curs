@@ -1,6 +1,10 @@
 CXX = g++
-FLAGS = -std=c++20
-SOURCES = 1.cpp Date.cpp Realty.cpp Apartment.cpp VillageHouse.cpp
+FLAGS = -std=c++20 -Iinclude
+SOURCES =	src/1.cpp \
+		  	src/Date.cpp \
+		  	src/Realty.cpp \
+		 	src/Apartment.cpp \
+		   	src/VillageHouse.cpp
 
 all:
 	$(CXX) $(FLAGS) $(SOURCES)
