@@ -7,7 +7,7 @@ class VillageHouse : public Realty {
 public:
     VillageHouse(std::string o, Date d, int p, std::string v, int n);
 
-    void printAll();
+    void printAll() override;
 private:
     std::string village_;
     int number_;
