@@ -2,7 +2,7 @@
 #define REALTY_H
 
 #include "Date.h"
-#include <iostream>
+
 
 class Realty {
 public:
@@ -19,6 +19,7 @@ public:
     void setPrice(int p);
 
     virtual void printAll();
+    virtual void read(std::istringstream &iss) = 0;
     
 protected:   
     std::string owner;

@@ -14,21 +14,18 @@ int main() {
     if (in.is_open()) {
         while (std::getline(in, line)) {
             std::istringstream iss(line);
+            Realty* ob;
             std::string word;
             iss >> word;
             if (word == "Apartment") {
-                std::string owner, house;
-                int day, month, year, price, number;
-                iss >> owner >> day >> month >> year >> price >> house >> number;
-                Realty* ob = new Apartment(owner, {day, month, year}, price, house, number);
-                allRealty.push_back(ob);
+                ob = new Apartment;
+                ob->read(iss);
             } else if (word == "VillageHouse") {
-                std::string owner, village;
-                int day, month, year, price, number;
-                iss >> owner >> day >> month >> year >> price >> village >> number;
-                Realty* ob = new VillageHouse(owner, {day, month, year}, price, village, number);
-                allRealty.push_back(ob);
+                ob = new VillageHouse;
+                ob->read(iss);
             } 
+            if (ob != nullptr)
+                allRealty.push_back(ob);
         }
     }
 

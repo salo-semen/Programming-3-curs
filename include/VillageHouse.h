@@ -6,8 +6,9 @@
 class VillageHouse : public Realty {
 public:
     VillageHouse(std::string o, Date d, int p, std::string v, int n);
-
+    VillageHouse() = default;
     void printAll() override;
+    void read(std::istringstream &iss) override;
 private:
     std::string village_;
     int number_;

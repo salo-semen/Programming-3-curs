@@ -13,3 +13,7 @@ Date::Date(int day, int mounth, int year) {
 void Date::print() {
     std::cout << "Date: " << day_ << "." << mounth_ << "." << year_ << std::endl;
 }
+
+void operator>>(std::istream& is, Date& date) {
+    is >> date.day_ >> date.mounth_ >> date.year_;
+}

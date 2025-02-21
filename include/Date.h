@@ -9,6 +9,7 @@ public:
     Date() {};
     ~Date() {};
     void print();
+    friend void operator>>(std::istream& is, Date& date);
 
 private:
     int year_;

@@ -6,9 +6,11 @@
 class Apartment : public Realty {
 public:
     Apartment(std::string o, Date d, int p, std::string h, int n);
+    Apartment() = default;
     void setHouse(std::string h);
     void setNumber(int n);
     void printAll() override;
+    void read(std::istringstream &iss) override;
 private:
     std::string house_;
     int number_;
