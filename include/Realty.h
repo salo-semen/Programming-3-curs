@@ -19,6 +19,7 @@ public:
     void setPrice(int p);
 
     virtual void printAll();
+    virtual std::string getAll();
     virtual void read(std::istringstream &iss) = 0;
     
 protected:   

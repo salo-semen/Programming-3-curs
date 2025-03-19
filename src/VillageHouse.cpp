@@ -14,3 +14,7 @@ void VillageHouse::read(std::istringstream &iss) {
     iss >> owner >> dateOfRegistration;
     iss >> price >> village_ >> number_;
 }
+
+std::string VillageHouse::getAll() {
+    return ("Village house " + Realty::getAll() + " " + village_ + " " + std::to_string(number_));
+}

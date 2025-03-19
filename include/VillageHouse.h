@@ -9,6 +9,7 @@ public:
     VillageHouse() = default;
     void printAll() override;
     void read(std::istringstream &iss) override;
+    std::string getAll() override;
 private:
     std::string village_;
     int number_;

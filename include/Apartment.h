@@ -11,6 +11,7 @@ public:
     void setNumber(int n);
     void printAll() override;
     void read(std::istringstream &iss) override;
+    std::string getAll() override;
 private:
     std::string house_;
     int number_;

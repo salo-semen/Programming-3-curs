@@ -10,6 +10,7 @@ public:
     ~Date() {};
     void print();
     friend void operator>>(std::istream& is, Date& date);
+    std::string getAll();
 
 private:
     int year_;

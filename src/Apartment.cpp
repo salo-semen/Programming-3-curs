@@ -23,3 +23,6 @@ void Apartment::read(std::istringstream &iss) {
     iss >> owner >> dateOfRegistration;
     iss >> price >> house_ >> number_;
 }
+std::string Apartment::getAll() {
+    return ("Apartment " + Realty::getAll() + " " + house_ + " " + std::to_string(number_));
+}

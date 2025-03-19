@@ -10,5 +10,8 @@ SOURCES = src/1.cpp \
 all:
 	$(CXX) $(FLAGS) $(QT_FLAGS) $(SOURCES)
 
+start:
+	./a.out
+
 clean:
 	rm -rf a.out

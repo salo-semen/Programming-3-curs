@@ -14,6 +14,10 @@ void Date::print() {
     std::cout << "Date: " << day_ << "." << mounth_ << "." << year_ << std::endl;
 }
 
+std::string Date::getAll() {
+    return (std::to_string(day_)+ "." + std::to_string(mounth_) + "." + std::to_string(year_));
+}
+
 void operator>>(std::istream& is, Date& date) {
     is >> date.day_ >> date.mounth_ >> date.year_;
 }

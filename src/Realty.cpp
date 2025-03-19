@@ -31,3 +31,7 @@ void Realty::printAll() {
     dateOfRegistration.print();
     std::cout << "Price: " << price << std::endl;
 }
+
+std::string Realty::getAll() {
+    return (owner + " " + dateOfRegistration.getAll() + " " + std::to_string(price));
+}
