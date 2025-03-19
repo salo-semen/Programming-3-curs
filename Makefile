@@ -1,13 +1,14 @@
 CXX = g++
-FLAGS = -std=c++20 -Iinclude
-SOURCES =	src/1.cpp \
-		  	src/Date.cpp \
-		  	src/Realty.cpp \
-		 	src/Apartment.cpp \
-		   	src/VillageHouse.cpp
+FLAGS = -std=c++20 -Iinclude -I/opt/homebrew/Cellar/qt/6.8.2_1/lib/QtWidgets.framework/Headers -I/opt/homebrew/Cellar/qt/6.8.2_1/lib/QtCore.framework/Headers
+QT_FLAGS =  -F/opt/homebrew/Cellar/qt/6.8.2_1/lib -framework QtWidgets -framework QtCore
+SOURCES = src/1.cpp \
+          src/Date.cpp \
+          src/Realty.cpp \
+          src/Apartment.cpp \
+          src/VillageHouse.cpp
 
 all:
-	$(CXX) $(FLAGS) $(SOURCES)
+	$(CXX) $(FLAGS) $(QT_FLAGS) $(SOURCES)
 
 clean:
 	rm -rf a.out

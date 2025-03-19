@@ -5,6 +5,8 @@
 #include "Realty.h"
 #include "Apartment.h"
 #include "VillageHouse.h"
+#include <QApplication>
+#include <QWidget>
 
 int main() {
     std::vector<Realty*> allRealty;
