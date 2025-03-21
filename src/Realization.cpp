@@ -1,30 +1,9 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include "Realty.h"
-#include "Apartment.h"
-#include "VillageHouse.h"
-#include <QApplication>
-#include <QWidget>
-#include <QTableWidget>
-#include <QTableWidgetItem>
-#include <QVBoxLayout>
+#include "Realization.h"
 
-class Realization {
-public:
-    Realization() {};
-    Realization(std::string nameFile) {init(nameFile);};
-    ~Realization() {
-        for (auto& it : allRealty) {
-            delete it;
-        }
-    };
-    QTableWidget* createTable();
-
-private:
-    std::vector<Realty*> allRealty;
-    void init(std::string nameFile);
+Realization::~Realization() {
+    for (auto& it : allRealty) {
+        delete it;
+    }
 };
 
 QTableWidget* Realization::createTable() {
@@ -53,6 +32,23 @@ QTableWidget* Realization::createTable() {
     return table;
 }
 
+void Realization::removeSelectedRow(QTableWidget* table) {
+    int selectedRow = table->currentRow();
+    if (selectedRow >= 0) {
+        table->removeRow(selectedRow);
+        allRealty.erase(allRealty.begin() + selectedRow);
+    }
+}
+
+void Realization::addNewRow(QTableWidget* table) {
+    int newRow = table->rowCount();
+    table->insertRow(newRow);
+    for (int col = 0; col < table->columnCount(); ++col) {
+        QTableWidgetItem* item = new QTableWidgetItem("New");
+        table->setItem(newRow, col, item);
+    }
+}
+
 void Realization::init(std::string nameFile) {
     std::string line;
     std::ifstream in(nameFile);
@@ -75,21 +71,4 @@ void Realization::init(std::string nameFile) {
     } else {
         std::cout << "File is not exist";
     }
-}
-
-int main(int argc, char *argv[]) {
-    Realization r("1.txt");
-
-    QApplication app(argc, argv);
-    QWidget window;
-    window.setWindowTitle("It's your BD");
-    window.resize(670, 350);
-    
-    QVBoxLayout* layout = new QVBoxLayout(&window);
-    layout->addWidget(r.createTable());
-    window.setLayout(layout);
-    
-    window.show();
-
-    return app.exec();
 }
