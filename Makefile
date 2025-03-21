@@ -6,7 +6,8 @@ SOURCES = src/main.cpp \
           src/Realty.cpp \
           src/Apartment.cpp \
           src/VillageHouse.cpp \
-          src/Realization.cpp
+          src/FileModel.cpp \
+          src/Ui.cpp
 
 all:
 	$(CXX) $(FLAGS) $(QT_FLAGS) $(SOURCES)
