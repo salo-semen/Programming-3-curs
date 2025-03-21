@@ -2,7 +2,8 @@
 
 FileModel::~FileModel() {
     for (auto& it : allRealty) {
-        delete it;
+        if (it != nullptr)
+            delete it;
     }
 };
 
@@ -12,7 +13,7 @@ void FileModel::removeSelectedRow(int selectedRow) {
 }
 
 void FileModel::addNewRow() {
-    Realty* r;
+    Realty* r = new Apartment;
     allRealty.push_back(r);
 }
 
