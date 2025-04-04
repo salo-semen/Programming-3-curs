@@ -1,3 +1,10 @@
 a.out
 .vscode/
 .DS_Store
+*.o
+moc_Ui.cpp
+moc_predefs.h
+.qmake.stash
+Makefile
+Programming-3-curs.app/
+Programming-3-curs.pro

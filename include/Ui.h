@@ -1,7 +1,6 @@
 #ifndef UI_H
 #define UI_H
 
-#include <QApplication>
 #include <QWidget>
 #include <QTableWidget>
 #include <QTableWidgetItem>
@@ -15,11 +14,14 @@ class MainWindow : public QWidget {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow() {};
+    MainWindow(QWidget *parent, FileModel* f);
+    ~MainWindow();
 
     void createTable();
     void drowWindow();
+
+private slots:
+    void remove_selected();
 
 private:
     QPushButton* deleteButton;
@@ -27,7 +29,16 @@ private:
     QTableWidget* table;
     QVBoxLayout* mainLayout;
     QHBoxLayout* buttonLayout;
-    FileModel fm;
+    FileModel* fm;
+    // void deleteRow();
 };
+
+// void MainWindow::deleteRow() {
+//     int selectedRow = table->currentRow();
+//     if (selectedRow >= 0) {
+//         table->removeRow(selectedRow);
+//         fm.removeSelectedRow(selectedRow);
+//     }
+// }
 
 #endif // UI_H

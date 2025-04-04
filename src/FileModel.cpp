@@ -1,11 +1,11 @@
-#include "FileModel.h"
+#include "include/FileModel.h"
 
 FileModel::~FileModel() {
     for (auto& it : allRealty) {
         if (it != nullptr)
             delete it;
     }
-};
+}
 
 void FileModel::removeSelectedRow(int selectedRow) {
     if (allRealty.size() >= selectedRow)
@@ -23,7 +23,7 @@ void FileModel::init(std::string nameFile) {
     if (in.is_open()) {
         while (std::getline(in, line)) {
             std::istringstream iss(line);
-            Realty* ob;
+            Realty* ob = nullptr;
             std::string word;
             iss >> word;
             if (word == "Apartment") {

@@ -1,4 +1,4 @@
-#include "Realty.h"
+#include "include/Realty.h"
 
 Realty::Realty(std::string o, Date d, int p) : owner{o}, dateOfRegistration{d}, price{p} {}
 

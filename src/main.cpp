@@ -2,19 +2,22 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include "Realty.h"
-#include "Apartment.h"
-#include "VillageHouse.h"
-#include "FileModel.h"
-#include "Ui.h"
+#include "include/Realty.h"
+#include "include/Apartment.h"
+#include "include/VillageHouse.h"
+#include "include/FileModel.h"
+#include "include/Ui.h"
+#include <QApplication>
 
 int main(int argc, char *argv[]) {
-    FileModel r("1.txt");
-
     QApplication app(argc, argv);
 
-    MainWindow window;
+    FileModel* r = new FileModel("1.txt");
 
+    MainWindow window(nullptr, r); 
+
+    window.resize(670, 400);
+    std::cout << "asdfasdf";
     window.createTable();
     window.drowWindow();
     
